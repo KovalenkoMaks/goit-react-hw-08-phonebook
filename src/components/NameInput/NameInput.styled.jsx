@@ -17,6 +17,7 @@ const FormEl = styled(Form)`
     margin-top: 6px;
   }
   button {
+    cursor: pointer;
     width: 100px;
     background-color: #5ca8f4;
     border-radius: 5px;

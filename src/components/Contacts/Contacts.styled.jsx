@@ -20,6 +20,7 @@ const ContactEl = styled.li`
     background-color: #5ca8f4;
     border-radius: 5px;
     height: 20px;
+    cursor: pointer;
   }
 `;
 

@@ -17,6 +17,7 @@ export const HeaderEl = styled.header`
     align-items: center;
   }
   button {
+    cursor: pointer;
     width: 100px;
     background-color: #5ca8f4;
     border-radius: 5px;
