@@ -1,16 +1,40 @@
-import { Filter } from 'components/Filter/Filter';
-import { NameInput } from 'components/NameInput/NameInput';
-import { Contacts } from 'components/Contacts/Contacts';
-
-import { Wrapper } from './app.styled';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from 'components/pages/Home';
+import { Registration } from 'components/pages/Registration';
+import { LogIn } from 'components/pages/LogIn';
+import { ContactsPage } from 'components/pages/ContactsPage';
+import { useEffect } from 'react';
+import { RestrictedRoute } from 'components/utils/RestrictedRout';
+import { PrivateRoute } from 'components/utils/PrivateRout';
+import { useDispatch, useSelector } from 'react-redux';
+import { refresh } from 'components/redux/auth/operations';
 
 export const App = () => {
+  const dispatch = useDispatch(refresh());
+  const token = useSelector(state => state.auth.token);
+
+  useEffect(() => {
+    dispatch(refresh(token));
+  }, [dispatch, token]);
   return (
-    <Wrapper>
-      <h1>Phonebook</h1>
-      <NameInput />
-      <Filter />
-      <Contacts />
-    </Wrapper>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="/registration" element={<Registration />} />
+          <Route
+            path="/logIn"
+            element={
+              <RestrictedRoute component={LogIn} redirectTo={'/contacts'} />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute component={ContactsPage} redirectTo={'/logIn'} />
+            }
+          />
+        </Route>
+      </Routes>
+    </>
   );
 };

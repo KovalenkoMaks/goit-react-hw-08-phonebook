@@ -14,7 +14,6 @@ const initialValues = {
 export function NameInput() {
   const [addContact] = useAddContactMutation();
   const { data } = useGetContactsQuery();
-  // const { data, error, isLoading } = useGetContactsQuery();
 
   const handleSubmit = async (values, { resetForm }) => {
     let check = data.find(

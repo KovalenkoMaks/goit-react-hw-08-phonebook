@@ -9,10 +9,9 @@ import { Spinner } from '../Spinner/Spinner';
 
 export function Contacts() {
   const { data, isLoading } = useGetContactsQuery();
-  // const { data, error, isLoading } = useGetContactsQuery();
-
   const [deleteContact, { isLoadingDelete }] = useDeleteContactMutation();
   const filterValue = useSelector(state => state.filter);
+
   if (isLoading) return <Spinner />;
   return (
     <>
@@ -40,6 +39,9 @@ export function Contacts() {
                   >
                     Delete
                   </button>
+                  {/* <button type="button" onClick={() => {}}>
+                    Edit
+                  </button> */}
                 </ContactEl>
               );
             })}
