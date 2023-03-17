@@ -6,12 +6,11 @@ import { ContactsPage } from 'components/pages/ContactsPage';
 import { useEffect } from 'react';
 import { RestrictedRoute } from 'components/utils/RestrictedRout';
 import { PrivateRoute } from 'components/utils/PrivateRout';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { refresh } from 'components/redux/auth/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
     dispatch(refresh());

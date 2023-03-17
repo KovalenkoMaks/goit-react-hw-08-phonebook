@@ -21,7 +21,7 @@ function Header() {
       <div>
         {isLoggedIn ? (
           <>
-            <p>Welcome {userName} ! </p>
+            <p>Welcome {userName}! </p>
             <button type="button" onClick={handelLogOut}>
               Log out
             </button>
