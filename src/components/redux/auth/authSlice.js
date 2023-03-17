@@ -60,7 +60,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(refresh.rejected, (state, action) => {
-        return state;
+        state.isLoggedIn = false;
       }),
 });
 
