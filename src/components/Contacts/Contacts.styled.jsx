@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const ContactsList = styled.ul`
+const ContactsListEl = styled.ul`
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -24,4 +24,4 @@ const ContactEl = styled.li`
   }
 `;
 
-export { ContactEl, ContactsList };
+export { ContactEl, ContactsListEl };

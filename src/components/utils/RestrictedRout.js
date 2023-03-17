@@ -7,3 +7,12 @@ export const RestrictedRoute = ({ component: Component, redirectTo }) => {
   //   console.log(isLoggedIn);
   return isLoggedIn ? <Navigate to={redirectTo} /> : <Component />;
 };
+
+// export const RestrictedRouteForUnloggedUser = ({
+//   component: Component,
+//   redirectTo,
+// }) => {
+//   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+//   //   console.log(isLoggedIn);
+//   return !isLoggedIn ? <Navigate to={redirectTo} /> : <Component />;
+// };

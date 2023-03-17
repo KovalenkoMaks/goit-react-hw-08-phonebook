@@ -8,8 +8,7 @@ function Header() {
   const handelLogOut = () => {
     dispatch(logOut());
   };
-  console.log(isLoggedIn);
-  console.log(userName);
+
   return (
     <HeaderEl>
       <nav>

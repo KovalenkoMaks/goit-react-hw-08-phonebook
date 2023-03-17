@@ -19,6 +19,7 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      swal(`Sorry, this Email has already used `, '', 'warning');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

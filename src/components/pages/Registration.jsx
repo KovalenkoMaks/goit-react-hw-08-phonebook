@@ -11,9 +11,8 @@ const initialValues = {
 
 function Registration() {
   const dispatch = useDispatch();
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = async values => {
     dispatch(register(values));
-    resetForm();
   };
 
   return (
@@ -55,7 +54,7 @@ function Registration() {
             />
           </label>
 
-          <button type="submit">Add contact</button>
+          <button type="submit">Sign Up</button>
         </FormEl>
       </Formik>
     </>
