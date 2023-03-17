@@ -34,21 +34,19 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
-      .addCase(logIn.rejected, (state, action) => {
-        return state;
-      })
+      .addCase(logIn.rejected, (state, action) => {})
       // LogOut
-      .addCase(logOut.pending, (state, action) => {
-        return state;
-      })
+      // .addCase(logOut.pending, (state, action) => {
+      //   return state;
+      // })
       .addCase(logOut.fulfilled, (state, action) => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(logOut.rejected, (state, action) => {
-        return state;
-      })
+      // .addCase(logOut.rejected, (state, action) => {
+      //   return state;
+      // })
       // Refresh
       .addCase(refresh.pending, (state, action) => {
         state.isRefreshing = true;
@@ -60,8 +58,12 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(refresh.rejected, (state, action) => {
+        state.token = null;
         state.isLoggedIn = false;
+        state.isRefreshing = false;
+        state.user = { name: null, email: null };
       }),
 });
 
 export default authSlice.reducer;
+export const { clearUser } = authSlice.actions;

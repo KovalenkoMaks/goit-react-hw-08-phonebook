@@ -3,7 +3,10 @@ import { logIn } from 'components/redux/auth/operations';
 import { Formik, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { H2El } from './Registration.styled';
-
+import { useEffect } from 'react';
+// import { contactsApi } from 'components/redux/contactsSliceAPI';
+import { clearUser } from 'components/redux/auth/authSlice';
+// import { contactsApi } from 'components/redux/contactsSliceAPI';
 const initialValues = {
   email: '',
   password: '',
@@ -11,6 +14,10 @@ const initialValues = {
 
 function LogIn() {
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(set);
+  // }, []);
+
   const handleSubmit = async values => {
     dispatch(logIn(values));
   };

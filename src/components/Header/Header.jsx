@@ -8,6 +8,8 @@ function Header() {
   const handelLogOut = () => {
     dispatch(logOut());
   };
+  console.log(isLoggedIn);
+  console.log(userName);
   return (
     <HeaderEl>
       <nav>
@@ -19,7 +21,7 @@ function Header() {
       <div>
         {isLoggedIn ? (
           <>
-            <p>Welcome {userName}! </p>
+            <p>Welcome {userName} ! </p>
             <button type="button" onClick={handelLogOut}>
               Log out
             </button>

@@ -10,12 +10,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refresh } from 'components/redux/auth/operations';
 
 export const App = () => {
-  const dispatch = useDispatch(refresh());
-  const token = useSelector(state => state.auth.token);
+  const dispatch = useDispatch();
+  // const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
-    dispatch(refresh(token));
-  }, [dispatch, token]);
+    dispatch(refresh());
+  }, [dispatch]);
   return (
     <>
       <Routes>

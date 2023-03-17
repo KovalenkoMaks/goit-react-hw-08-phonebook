@@ -55,7 +55,7 @@ export const logOut = createAsyncThunk(
 
 export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   const state = thunkAPI.getState();
-  const persistedToken = state.auth.token;
+  let persistedToken = state.auth.token;
   if (persistedToken === null) {
     return thunkAPI.rejectWithValue();
   }
@@ -66,6 +66,9 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 
     return data;
   } catch (error) {
+    clearAuthHeader();
+    // persistedToken = null;
     console.log(error);
+    return thunkAPI.rejectWithValue();
   }
 });

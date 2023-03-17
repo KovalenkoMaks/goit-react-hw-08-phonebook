@@ -11,6 +11,7 @@ export const contactsApi = createApi({
       } else {
         headers.delete('authorization');
       }
+
       return headers;
     },
   }),
@@ -20,6 +21,7 @@ export const contactsApi = createApi({
     getContacts: builder.query({
       query: () => '/contacts',
       providesTags: ['Contacts'],
+      keepUnusedDataFor: 2,
     }),
     addContact: builder.mutation({
       query: values => ({
