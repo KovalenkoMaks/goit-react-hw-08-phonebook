@@ -8,6 +8,7 @@ import { RestrictedRoute } from 'components/utils/RestrictedRout';
 import { PrivateRoute } from 'components/utils/PrivateRout';
 import { useDispatch } from 'react-redux';
 import { refresh } from 'components/redux/auth/operations';
+import { NoFound } from 'components/pages/NoFound';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ export const App = () => {
               <PrivateRoute component={ContactsPage} redirectTo={'/logIn'} />
             }
           />
+          <Route path="*" element={<NoFound />} />
         </Route>
       </Routes>
     </>
