@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import { ContactEl, ContactsListEl } from './Contacts.styled';
 import { useSelector } from 'react-redux';
-import {
-  useGetContactsQuery,
-  useDeleteContactMutation,
-} from '../redux/contactsSliceAPI';
+import { useDeleteContactMutation } from '../redux/contactsSliceAPI';
 import { Spinner } from '../Spinner/Spinner';
 // import getStoredState from 'redux-persist/es/getStoredState';
 

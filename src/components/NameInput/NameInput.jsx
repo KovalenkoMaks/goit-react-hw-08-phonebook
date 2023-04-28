@@ -2,7 +2,7 @@ import { Formik, Field } from 'formik';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 import { useAddContactMutation } from '../redux/contactsSliceAPI';
-import { useGetContactsQuery } from '../redux/contactsSliceAPI';
+// import { useGetContactsQuery } from '../redux/contactsSliceAPI';
 
 import { FormEl } from './NameInput.styled';
 import { useSelector } from 'react-redux';
