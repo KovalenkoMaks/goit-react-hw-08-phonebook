@@ -7,7 +7,7 @@ function ContactsPage() {
     <>
       <NameInput />
       <Filter />
-      <Contacts />
+      {/* <Contacts /> */}
     </>
   );
 }

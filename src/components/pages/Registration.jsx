@@ -1,8 +1,9 @@
 import { FormEl } from 'components/NameInput/NameInput.styled';
-import { register } from 'components/redux/auth/operations';
+import { logIn, register } from 'components/redux/auth/operations';
 import { Formik, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { H2El } from './Registration.styled';
+// import { useGetContactsQuery } from 'components/redux/contactsSliceAPI';
 const initialValues = {
   name: '',
   email: '',
@@ -12,7 +13,11 @@ const initialValues = {
 function Registration() {
   const dispatch = useDispatch();
   const handleSubmit = async values => {
-    dispatch(register(values));
+    dispatch(register(values))
+      .unwrap()
+      .then(() => {
+        dispatch(logIn({ email: values.email, password: values.password }));
+      });
   };
 
   return (

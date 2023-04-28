@@ -2,7 +2,6 @@ import { Wrapper } from 'components/App/app.styled';
 import { Header } from 'components/Header/Header';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { useEffect } from 'react';
 
 function Home() {
   // const navigate = useNavigate();

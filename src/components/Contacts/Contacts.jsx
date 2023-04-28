@@ -6,14 +6,17 @@ import {
   useDeleteContactMutation,
 } from '../redux/contactsSliceAPI';
 import { Spinner } from '../Spinner/Spinner';
+// import getStoredState from 'redux-persist/es/getStoredState';
 
 export function Contacts() {
-  const { data, isLoading } = useGetContactsQuery();
+  // const currentState = getStoredState();
+  // console.log(currentState);
   const [deleteContact, { isLoadingDelete }] = useDeleteContactMutation();
   const filterValue = useSelector(state => state.filter);
   let filteredArr = [];
-  // console.log(isLoading);
-  // console.log(data);
+  const data = [];
+  const isLoading = false;
+  // const { data, isLoading } = useGetContactsQuery();
   if (data) {
     filteredArr = data.filter(e =>
       e.name.toLowerCase().includes(filterValue.toLowerCase())
@@ -21,7 +24,7 @@ export function Contacts() {
   }
   if (!isLoading && data.length === 0) return <p>You have not contacts yet</p>;
   if (isLoading) return <Spinner />;
-  // console.log(filteredArr);
+
   return (
     <>
       <h2>Contacts</h2>
@@ -32,14 +35,15 @@ export function Contacts() {
               return null;
             }
             return (
-              <ContactEl key={e.id}>
+              <ContactEl key={e._id}>
                 <p>
-                  {e.name}: {e.number}
+                  {e.name}: {e.phone}
                 </p>
+                <p>{e.email}</p>
                 <button
                   type="button"
                   onClick={() => {
-                    deleteContact(e.id);
+                    deleteContact(e._id);
                   }}
                   disabled={isLoadingDelete}
                 >
