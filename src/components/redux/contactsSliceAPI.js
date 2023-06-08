@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const contactsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/api',
-    // baseUrl: 'https://goit-node-hw-restapi.onrender.com',
+    // baseUrl: 'http://localhost:3000/api',
+    baseUrl: 'https://goit-node-hw-restapi.onrender.com',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {

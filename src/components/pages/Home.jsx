@@ -4,15 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Home() {
-  // const navigate = useNavigate();
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  // console.log(isLoggedIn);
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     navigate('/logIn');
-  //   }
-  // }, [isLoggedIn, navigate]);
 
   return (
     <Wrapper>
